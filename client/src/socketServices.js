@@ -7,6 +7,8 @@ export const initSocket = () => {
         transports: ["websocket"]
     });
 
+    console.log("Connecting...");
+
     socket.on("connect", () => console.log("Connected!"));
 };
 

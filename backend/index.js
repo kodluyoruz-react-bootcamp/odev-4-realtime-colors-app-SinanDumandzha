@@ -9,8 +9,8 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
     console.log('a user connected');
 
-    socket.on("bg-color", (bg) => {
-        socket.broadcast.emit("changed-bg-color", bg);
+    socket.on("bg-color", (bgColor) => {
+        socket.broadcast.emit("changed-bg-color", bgColor);
     });
 
     socket.on("disconnect", () => console.log("a user disconnected"));
