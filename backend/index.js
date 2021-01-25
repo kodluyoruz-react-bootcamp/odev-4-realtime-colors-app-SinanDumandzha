@@ -10,13 +10,12 @@ io.on('connection', (socket) => {
     console.log('a user connected');
 
     socket.on("bg-color", (bgColor) => {
-        console.log(b);
         socket.broadcast.emit("changed-bg-color", bgColor);
     });
 
     socket.on("disconnect", () => console.log("a user disconnected"));
 });
 
-http.listen(4000, () => {
-    console.log('listening on *:4000');
+http.listen(process.env.PORT || 3000, () => {
+    console.log('listening...');
 });
