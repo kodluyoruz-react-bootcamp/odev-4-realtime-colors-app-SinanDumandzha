@@ -2,9 +2,12 @@ import React from 'react';
 
 import styles from './ColorPicker.module.css';
 
-function ColorPicker({ color, bgColorChangeHandler }) {
+function ColorPicker({ color, colorPickHandler, bgColorChangeHandler }) {
     return (
-        <input className={styles.colorPicker} type="color" onChange={bgColorChangeHandler} value={color} />
+        <>
+            <button className={styles.btn} onClick={bgColorChangeHandler}>Change color</button>
+            <input className={styles.colorPicker} type="color" onChange={colorPickHandler} value={color} />
+        </>
     );
 };
 

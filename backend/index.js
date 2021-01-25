@@ -10,6 +10,7 @@ io.on('connection', (socket) => {
     console.log('a user connected');
 
     socket.on("bg-color", (bgColor) => {
+        console.log(b);
         socket.broadcast.emit("changed-bg-color", bgColor);
     });
 

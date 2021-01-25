@@ -22,14 +22,20 @@ function App() {
     return () => disconnectSocket();
   }, [setNewBgColor]);
 
+  let newColor;
+
+  const colorPickHandler = (e) => {
+    newColor = (e.target.value);
+  }
+
   const bgColorChangeHandler = (e) => {
-    setNewBgColor(e.target.value);
-    setBgColor(e.target.value);
+    setNewBgColor(newColor);
+    setBgColor(newColor);
   }
 
   return (
-    <div style={{ backgroundColor: newBgColor }}>
-      <ColorPicker bgColorChangeHandler={bgColorChangeHandler} color={newBgColor} />
+    <div className="app" style={{ backgroundColor: newBgColor }}>
+      <ColorPicker colorPickHandler={colorPickHandler} bgColorChangeHandler={bgColorChangeHandler} color={newBgColor} />
       <ColorInfo color={newBgColor} />
     </div>
   );
